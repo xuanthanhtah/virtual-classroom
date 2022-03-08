@@ -1,9 +1,13 @@
 package com.virtualclassroom.controller;
 
-import com.virtualclassroom.service.UserService;
+import com.virtualclassroom.model.User;
+import com.virtualclassroom.service.user.UserService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UserController {
@@ -13,9 +17,46 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/users")
+    @GetMapping("/index")
     public String getUsersPage(Model model) {
         model.addAttribute("users", userService.getAllUsers());
         return "users";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+//    @PostMapping("/login")
+//    public String login(User user, Model model) {
+//        User user1 = userService.findByUsername(user.getUsername());
+//        if (user1 != null && user1.getPassword().equals(user.getPassword())) {
+//            model.addAttribute("user", user1);
+//            return "redirect:/user/home";
+//        } else {
+//            model.addAttribute("error", "Invalid username or password");
+//            return "login";
+//        }
+//    }
+
+    @GetMapping("/home")
+    public String home() {
+        return "home";
+    }
+
+    @GetMapping("/register")
+    public String getRegisterPage(Model model) {
+        model.addAttribute("user", new User());
+        return "register";
+    }
+
+    @PostMapping("/process_register")
+    public String processRegister(User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getUserPassword());
+        user.setUserPassword(encodedPassword);
+        userService.addUser(user);
+        return "register_success";
     }
 }

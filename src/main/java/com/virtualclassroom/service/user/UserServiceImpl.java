@@ -1,4 +1,4 @@
-package com.virtualclassroom.service;
+package com.virtualclassroom.service.user;
 
 import com.virtualclassroom.model.User;
 import com.virtualclassroom.repository.UserRepository;
@@ -17,5 +17,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public void addUser(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public User findByEmail(String username) {
+        return userRepository.findByEmail(username);
     }
 }

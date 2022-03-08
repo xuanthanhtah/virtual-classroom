@@ -6,11 +6,11 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name="Users")
+@Table(name="users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String userName;
 
@@ -24,7 +24,7 @@ public class User {
     @JoinTable(name = "UserClass",
             joinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "classId", referencedColumnName = "id"))
-    private Set<Class> classes = new HashSet<>();
+    private Set<Classroom> classrooms = new HashSet<>();
 
     public User() {
     }
@@ -36,11 +36,11 @@ public class User {
         this.userStatus = userStatus;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -76,20 +76,20 @@ public class User {
         this.userStatus = userStatus;
     }
 
-    public Set<Class> getClasses() {
-        return classes;
+    public Set<Classroom> getClasses() {
+        return classrooms;
     }
 
-    public void setClasses(Set<Class> classes) {
-        this.classes = classes;
+    public void setClasses(Set<Classroom> classrooms) {
+        this.classrooms = classrooms;
     }
 
-    public void addClass(Class cls) {
-        this.classes.add(cls);
+    public void addClass(Classroom cls) {
+        this.classrooms.add(cls);
     }
 
-    public void removeClass(Class cls) {
-        this.classes.remove(cls);
+    public void removeClass(Classroom cls) {
+        this.classrooms.remove(cls);
     }
 
     @Override

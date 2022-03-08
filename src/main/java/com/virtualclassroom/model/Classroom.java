@@ -6,10 +6,10 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-public class Class {
+public class Classroom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String nameClass;
 
@@ -17,17 +17,17 @@ public class Class {
 
     private String codeClass;
 
-    @ManyToMany(mappedBy = "classes")
+    @ManyToMany(mappedBy = "classrooms")
     private Set<User> users = new HashSet<>();
 
-    public Class() {
+    public Classroom() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -75,8 +75,8 @@ public class Class {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Class aClass = (Class) o;
-        return id == aClass.id;
+        Classroom aClassroom = (Classroom) o;
+        return id == aClassroom.id;
     }
 
     @Override
