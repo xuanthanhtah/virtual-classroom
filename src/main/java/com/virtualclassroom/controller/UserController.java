@@ -2,6 +2,7 @@ package com.virtualclassroom.controller;
 
 import com.virtualclassroom.model.User;
 import com.virtualclassroom.service.user.UserService;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
     private final UserService userService;
 
@@ -23,23 +25,6 @@ public class UserController {
         return "users";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-//    @PostMapping("/login")
-//    public String login(User user, Model model) {
-//        User user1 = userService.findByUsername(user.getUsername());
-//        if (user1 != null && user1.getPassword().equals(user.getPassword())) {
-//            model.addAttribute("user", user1);
-//            return "redirect:/user/home";
-//        } else {
-//            model.addAttribute("error", "Invalid username or password");
-//            return "login";
-//        }
-//    }
-
     @GetMapping("/home")
     public String home() {
         return "home";
@@ -52,11 +37,11 @@ public class UserController {
     }
 
     @PostMapping("/process_register")
-    public String processRegister(User user) {
+    public String processRegister(@NotNull User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getUserPassword());
         user.setUserPassword(encodedPassword);
         userService.addUser(user);
-        return "register_success";
+        return "login";
     }
 }

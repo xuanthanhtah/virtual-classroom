@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head th:replace="header :: header (type='tag')">
     <meta charset="UTF-8">
     <title>Login page</title>
 </head>
 <body>
-
+<div class="login-form popup">
+    <form method="post" th:action="@{/login}">
+        <h3>đăng nhập</h3>
+        <input class="box" placeholder="email" type="text" th:name="username">
+        <input class="box" placeholder="mật khẩu" type="password" th:name="password">
+        <p>Quên mật khẩu? <a href="#">Nhấn vào đây</a></p>
+        <input class="btn" type="submit" value="đăng nhập">
+        <i class="fas fa-times"></i>
+    </form>
+</div>
 </body>
 </html>

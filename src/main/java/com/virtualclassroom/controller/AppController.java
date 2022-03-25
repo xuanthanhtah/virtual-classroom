@@ -9,4 +9,14 @@ public class AppController {
     public String index() {
         return "index";
     }
+
+    @GetMapping("/home")
+    public String home() {
+        return "home";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 }

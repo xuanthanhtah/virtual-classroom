@@ -1,18 +1,44 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="ISO-8859-1">
-    <title>Index</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: header(type='tag')"><title></title>
 </head>
 <body>
-<div class="container text-center">
-    <h1>Welcome to Virtual Classroom</h1>
-    <h3><a th:href="@{/user/index}">List of Users</a></h3>
-    <h3><a th:href="@{/register}">Register</a></h3>
-    <h3><a th:href="@{/login}">Login</a></h3>
-</div>
 
+<!--header-start-->
+<header>
+
+    <div class="fas fa-bars" id="menu"></div>
+
+    <a class="logo" href="#"><i class="fas fa-user-graduate"></i>LOGO-NAME</a>
+
+    <nav class="navbar">
+        <ul>
+            <li><a class="active" href="#home">home</a></li>
+            <li><a th:href="@{/user/index}">List of Users</a></li>
+            <li><a th:href="@{/user/register}">Register</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+        </ul>
+    </nav>
+    <div class="fas fa-user-circle" id="login"></div>
+</header>
+<!--header-end-->
+
+<!--Login-start-->
+<div class="login-form">
+    <form method="post" th:action="@{/login}">
+        <h3>đăng nhập</h3>
+        <input class="box" placeholder="email" type="text" th:name="username">
+        <input class="box" placeholder="mật khẩu" type="password" th:name="password">
+        <p>Quên mật khẩu? <a href="#">Nhấn vào đây</a></p>
+        <input class="btn" type="submit" value="đăng nhập">
+        <i class="fas fa-times"></i>
+    </form>
+</div>
+<!--Login-end-->
+
+<!--jquery library-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--js-->
+<script th:src="@{../script.js}"></script>
 </body>
 </html>

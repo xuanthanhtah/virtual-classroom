@@ -1,0 +1,259 @@
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    border: none; outline: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+:root {
+    --gradient: linear-gradient(90deg, #36d1dc, #5b86e5);
+}
+
+*::selection{
+    background: #5b86e5;
+    color: #fff;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+    width: 1.5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: #333;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: linear-gradient(#36d1dc, #5b86e5);
+}
+
+body {
+    height: 300rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.btn {
+    padding: .7rem 3rem;
+    font-size: 2rem;
+    color: #fff;
+    background: var(--gradient);
+    border-radius: 5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    box-shadow: 0 .1rem .3rem rgba(0, 0, 0, .3);
+}
+
+/*Header-start*/
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 1000;
+    padding: 1.5rem 7%;
+    background: var(--gradient);
+    box-shadow: 0 .1rem .3rem rgba(0, 0, 0, .3);
+}
+
+header .logo {
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+header .navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+header .navbar ul li {
+    margin: 0 1rem;
+}
+
+header .navbar ul li a {
+    font-size: 2rem;
+    color: #fff;
+}
+
+header .navbar ul li a.active,
+header .navbar ul li a:hover {
+    color: #444;
+}
+
+header #login {
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+header #login:hover {
+    color: #444;
+}
+
+header #menu {
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+/*Header-End*/
+
+/*login-start*/
+.login-form.popup {
+    top: 0;
+}
+
+.login-form {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: -120%; left: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form form {
+    width: 35rem;
+    background: #fff;
+    margin: 0 2rem;
+    padding: 1rem 3rem;
+    border-radius: .5rem;
+    box-shadow: 0 .1rem .3rem #333;
+    position: relative;
+}
+
+.login-form form h3 {
+    font-size: 3rem;
+    color: #5b86e5;
+    padding: 1rem 0;
+}
+
+.login-form form .box {
+    width: 100%;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    border-bottom: .2rem solid #666;
+    font-size: 1.6rem;
+    color: #333;
+    text-transform: none;
+}
+
+.login-form form .box::placeholder {
+    text-transform: capitalize;
+}
+
+.login-form form .box:focus {
+    border-color: #5b86e5;
+}
+
+.login-form form .box:nth-child(3) {
+    margin-bottom: 5rem;
+}
+
+.login-form form p {
+    font-size: 1.4rem;
+    color: #666;
+    padding: .5rem 0;
+}
+
+.login-form form p a {
+    color: #5b86e5;
+}
+
+.login-form form .btn {
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.login-form form .btn:hover {
+    background: #4ca1af;
+}
+
+.login-form form .fa-times {
+    position: absolute;
+    top: 1.5rem; right: 2rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #999;
+}
+
+.login-form form .fa-times:hover {
+    color: #444;
+}
+/*login-end*/
+
+
+
+
+
+
+
+
+
+/*media-queries-start*/
+@media (max-width:768px) {
+    html {
+        font-size: 55%;
+    }
+
+    header #menu {
+        display: block;
+    }
+
+    header .navbar {
+        position: fixed;
+        top: -120%; left: 0;
+        width: 100%;
+        background-color: #444;
+    }
+
+    header .navbar ul {
+        flex-flow: column;
+        padding: 2rem 0;
+    }
+
+    header .navbar ul li {
+        margin: 1.5rem 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    header .navbar ul li a {
+        font-size: 2.5rem;
+        display: block;
+    }
+
+    header .navbar ul li a.active,
+    header .navbar ul li a:hover {
+        color: #5b86e5;
+    }
+
+    .fa-times{
+        transform: rotate(180deg);
+    }
+    
+    header .navbar.nav-toggle {
+        top: 6.4rem;;
+    }
+}
+
+@media (max-width:500px) {
+    html {
+        font-size: 50%;
+    }
+}
+/*media-queries-end*/
