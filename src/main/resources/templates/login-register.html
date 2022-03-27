@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="vi"
+      layout:decorate="_layout"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+>
+<head th:replace="_layout :: head(type='tag')">
+    <title></title>
+</head>
+
+<body>
+
+<div class="main-wrapper" layout:fragment="main_body">
+
+    <!-- Page Banner Start -->
+    <div class="section page-banner-section bg-color-1">
+
+        <img alt="shape" class="shape-1" th:src="@{../images/shape/shape-5.png}">
+        <img alt="shape" class="shape-2" th:src="@{../images/shape/shape-6.png}">
+        <img alt="shape" class="shape-3" th:src="@{../images/shape/shape-7.png}">
+
+        <img alt="shape" class="shape-4" th:src="@{../images/shape/shape-21.png}">
+        <img alt="shape" class="shape-5" th:src="@{../images/shape/shape-21.png}">
+
+        <div class="container">
+            <!-- Page Banner Content Start -->
+            <div class="page-banner-content">
+                <h2 class="title">Login & Register</h2>
+                <ul class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Login & Register</li>
+                </ul>
+            </div>
+            <!-- Page Banner Content End -->
+        </div>
+    </div>
+    <!-- Page Banner End -->
+
+    <!-- Login & Register Start -->
+    <div class="section section-padding">
+        <div class="container">
+
+            <!-- Login & Register Wrapper Start -->
+            <div class="login-register-wrapper">
+                <div class="row gx-5">
+                    <div class="col-lg-6">
+
+                        <!-- Login & Register Box Start -->
+                        <div class="login-register-box">
+                            <!-- Section Title Start -->
+                            <div class="section-title">
+                                <h2 class="title">Login</h2>
+                            </div>
+                            <!-- Section Title End -->
+
+                            <div class="login-register-form">
+                                <form method="post" th:action="@{/login-register}">
+                                    <div class="single-form">
+                                        <label>
+                                            <input class="form-control" placeholder="Username" th:name="username"
+                                                   type="text"/>
+                                        </label>
+                                    </div>
+                                    <div class="single-form">
+                                        <label>
+                                            <input class="form-control" placeholder="Password " th:name="password"
+                                                   type="password"/>
+                                        </label>
+                                    </div>
+                                    <div class="single-form form-check">
+                                        <input class="form-check-input" id="flexCheckDefault" type="checkbox" value="">
+                                        <label for="flexCheckDefault">Remember me</label>
+                                    </div>
+                                    <div class="single-form">
+                                        <button class="btn btn-primary btn-hover-heading-color w-100" type="submit">Login</button>
+                                    </div>
+                                    <div class="single-form">
+                                        <p><a href="#">Lost your password?</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Login & Register Box End -->
+
+                    </div>
+                    <div class="col-lg-6">
+
+                        <!-- Login & Register Box Start -->
+                        <div class="login-register-box">
+                            <!-- Section Title Start -->
+                            <div class="section-title">
+                                <h2 class="title">Register</h2>
+                            </div>
+                            <!-- Section Title End -->
+
+                            <div class="login-register-form">
+                                <form method="post" th:action="@{/user/process_register}" th:object="${user}">
+                                    <div class="single-form">
+
+                                        <label for="email"></label><input type="email" class="form-control" id="email" placeholder="Email " required th:field="*{userEmail}">
+                                    </div>
+                                    <div class="single-form">
+                                        <label>
+                                            <input type="text" class="form-control" placeholder="Username"  required th:field="*{userName}" >
+                                        </label>
+                                    </div>
+                                    <div class="single-form">
+                                        <label>
+                                            <input type="password" class="form-control" placeholder="Password " required th:field="*{userPassword}" >
+                                        </label>
+                                    </div>
+                                    <div class="single-form">
+                                        <button class="btn btn-primary btn-hover-heading-color w-100" type="submit">Register</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Login & Register Box End -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- Login & Register Wrapper End -->
+
+        </div>
+    </div>
+    <!-- Login & Register End -->
+</div>
+</body>
+
+</html>

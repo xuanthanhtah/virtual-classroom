@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="vi"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head (type)" th:remove="${type}">
+    <meta charset="utf-8">
+    <title>Lmsmart - Education Bootstrap 5 Template</title>
+    <meta content="noindex, follow" name="robots">
+    <meta content="" name="description">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{../images/favicon.png}" type="image/x-icon">
+
+    <!-- CSS
+    ============================================ -->
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" th:href="@{../css/plugins/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{../css/plugins/flaticon.css}">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" th:href="@{../css/plugins/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{../css/plugins/animate.min.css}">
+    <link rel="stylesheet" th:href="@{../css/plugins/swiper-bundle.min.css}">
+    <link rel="stylesheet" th:href="@{../css/plugins/nice-select2.css}">
+    <link rel="stylesheet" th:href="@{../css/plugins/jquery.powertip.min.css}">
+    <link rel="stylesheet" th:href="@{../css/plugins/glightbox.min.css}">
+
+    <!-- Main Style CSS -->
+    <!-- <link rel="stylesheet" th:href="@{../css/style.css"> -->
+    <link rel="stylesheet" th:href="@{../css/style.min.css}">
+
+</head>
+
+<body>
+
+<div class="main-wrapper">
+
+    <!-- Header Start  -->
+    <div class="header section" id="header">
+        <div class="container">
+
+            <!-- Header Wrapper Start  -->
+            <div class="header-wrapper">
+
+                <!-- Header Logo Start -->
+                <div class="header-logo">
+                    <a href="index.html"><img alt="" th:src="@{../images/logo.png}"></a>
+                </div>
+                <!-- Header Logo End -->
+
+                <!-- Header Menu Start -->
+                <div class="header-menu d-none d-lg-block">
+                    <ul class="main-menu">
+                        <li>
+                            <a class="active"  th:href="@{/}">Home</a>
+                            <ul class="sub-menu">
+                                <li><a class="active" href="index.html">Home 01</a></li>
+                                <li><a href="index-2.html">Home 02</a></li>
+                                <li><a href="index-3.html">Home 03</a></li>
+                                <li><a href="index-4.html">Home 04</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a th:href="@{/user/index}">List of Users</a>
+                            <ul class="sub-menu">
+                                <li><a href="about.html">About 01</a></li>
+                                <li><a href="about-2.html">About 02</a></li>
+                                <li><a href="instructor.html">Instructor</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="login-register.html">Login & Register</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a th:href="@{/user/register}">Register</a>
+                            <ul class="sub-menu">
+                                <li><a href="course-list.html">Course List</a></li>
+                                <li><a href="course-grid.html">Course Grid</a></li>
+                                <li><a href="course-details.html">Course Details</a></li>
+                            </ul>
+                        </li>
+                        <li><a th:href="@{/login}">Login</a>
+                            <ul class="sub-menu">
+                                <li><a href="blog-grid.html">Blog Grid</a></li>
+                                <li><a href="blog-list.html">Blog List</a></li>
+                                <li><a href="blog-details.html">Blog Details</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Header Menu End -->
+
+                <!-- Header Meta Start -->
+                <div class="header-meta">
+
+                    <div class="header-search d-none d-lg-block">
+                        <form action="#">
+                            <input placeholder="Search Courses" type="text">
+                            <button><i class="flaticon-loupe"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="header-cart dropdown">
+                        <button class="cart-btn" data-bs-toggle="dropdown">
+                            <i class="flaticon-shopping-cart"></i>
+                            <span class="count">3</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-cart">
+                            <!-- Cart Items Start -->
+                            <div class="cart-items">
+                                <!-- Single Cart Item Start -->
+                                <div class="single-cart-item">
+                                    <div class="item-image">
+                                        <img alt="Cart" th:src="@{../images/shop-cart-1.jpg}">
+                                    </div>
+                                    <div class="item-content">
+                                        <h4 class="title"><a href="#">Smart Gear Watch</a></h4>
+                                        <span class="quantity"> 2 x $59.99 </span>
+                                    </div>
+                                    <button class="btn-close"></button>
+                                </div>
+                                <!-- Single Cart Item End -->
+                                <!-- Single Cart Item Start -->
+                                <div class="single-cart-item">
+                                    <div class="item-image">
+                                        <img alt="Cart" th:src="@{../images/shop-cart-2.jpg}">
+                                    </div>
+                                    <div class="item-content">
+                                        <h4 class="title"><a href="#">Smart Gear Watch</a></h4>
+                                        <span class="quantity"> 2 x $59.99 </span>
+                                    </div>
+                                    <button class="btn-close"></button>
+                                </div>
+                                <!-- Single Cart Item End -->
+                                <!-- Single Cart Item Start -->
+                                <div class="single-cart-item">
+                                    <div class="item-image">
+                                        <img alt="Cart" th:src="@{../images/shop-cart-3.jpg}">
+                                    </div>
+                                    <div class="item-content">
+                                        <h4 class="title"><a href="#">Smart Gear Watch</a></h4>
+                                        <span class="quantity"> 2 x $59.99 </span>
+                                    </div>
+                                    <button class="btn-close"></button>
+                                </div>
+                                <!-- Single Cart Item End -->
+                            </div>
+                            <!-- Cart Items End -->
+
+                            <!-- Cart Total Start -->
+                            <div class="cart-total">
+                                <span class="label">Subtotal:</span>
+                                <span class="value">$229.95</span>
+                            </div>
+                            <!-- Cart Total End -->
+
+                            <!-- Cart Button Start -->
+                            <div class="cart-btns">
+                                <a class="btn btn-primary btn-hover-white" href="#">View Cart</a>
+                                <a class="btn btn-white btn-hover-primary" href="#">Checkout</a>
+                            </div>
+                            <!-- Cart Button End -->
+                        </div>
+                    </div>
+
+                    <div class="header-login d-none d-lg-flex">
+                        <a class="link" href="login-register.html"><i class="fa fa-user-o"></i> Login</a>
+                        <a class="link" href="login-register.html">Register</a>
+                    </div>
+
+                    <div class="header-toggle d-lg-none">
+                        <button data-bs-target="#offcanvasMenu" data-bs-toggle="offcanvas">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                </div>
+                <!-- Header Meta End -->
+
+            </div>
+            <!-- Header Wrapper End -->
+
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Offcanvas Start -->
+    <div class="offcanvas offcanvas-start" id="offcanvasMenu">
+
+        <div class="offcanvas-header">
+            <!-- Offcanvas Logo Start -->
+            <div class="offcanvas-logo">
+                <a href="index.html"><img alt="" th:src="@{../images/logo.png}"></a>
+            </div>
+            <!-- Offcanvas Logo End -->
+            <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <div class="offcanvas-menu">
+                <ul class="main-menu">
+                    <li>
+                        <a class="active" href="#">Home</a>
+                        <ul class="sub-menu">
+                            <li><a class="active" href="index.html">Home 01</a></li>
+                            <li><a href="index-2.html">Home 02</a></li>
+                            <li><a href="index-3.html">Home 03</a></li>
+                            <li><a href="index-4.html">Home 04</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Pages</a>
+                        <ul class="sub-menu">
+                            <li><a href="about.html">About 01</a></li>
+                            <li><a href="about-2.html">About 02</a></li>
+                            <li><a href="instructor.html">Instructor</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="login-register.html">Login & Register</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Courses</a>
+                        <ul class="sub-menu">
+                            <li><a href="course-list.html">Course List</a></li>
+                            <li><a href="course-grid.html">Course Grid</a></li>
+                            <li><a href="course-details.html">Course Details</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Blog</a>
+                        <ul class="sub-menu">
+                            <li><a href="blog-grid.html">Blog Grid</a></li>
+                            <li><a href="blog-list.html">Blog List</a></li>
+                            <li><a href="blog-details.html">Blog Details</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- Offcanvas End -->
+
+    <!--Start main body-->
+        <div layout:fragment="main_body"></div>
+    <!--End main body-->
+
+    <!-- Footer Start -->
+    <div class="footer-section section">
+        <div class="container">
+
+            <!-- Footer Widget Wrapper Start -->
+            <div class="footer-widget-wrapper">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <!-- Footer Widget Start -->
+                        <div class="footer-widget">
+                            <a class="footer-logo" href="index.html"><img alt="Logo" th:src="@{../images/logo.png}"></a>
+
+                            <div class="widget-info">
+                                <p><i class="flaticon-phone-call"></i> <a href="tel:+91458654528">+91 458 654 528</a>
+                                </p>
+                                <p><i class="flaticon-placeholder"></i> <a href="mailto:info@example.com">info@example.com</a>
+                                </p>
+                                <p><i class="flaticon-open-mail"></i> <span>60 East 65th Street, NY</span></p>
+
+                                <ul class="social">
+                                    <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Footer Widget End -->
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <!-- Footer Widget Start -->
+                        <div class="footer-widget">
+                            <h4 class="footer-widget-title">Useful Links</h4>
+
+                            <div class="widget-link">
+                                <ul class="link">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="blog-grid.html">Blog</a></li>
+                                    <li><a href="pricing.html">Pricing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Footer Widget End -->
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <!-- Footer Widget Start -->
+                        <div class="footer-widget">
+                            <h4 class="footer-widget-title">Support</h4>
+
+                            <div class="widget-link">
+                                <ul class="link">
+                                    <li><a href="#">Documentation</a></li>
+                                    <li><a href="#">Support</a></li>
+                                    <li><a href="#">FAQS</a></li>
+                                    <li><a href="#">Download</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Footer Widget End -->
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <!-- Footer Widget Start -->
+                        <div class="footer-widget">
+                            <h4 class="footer-widget-title">Terms</h4>
+
+                            <div class="widget-link">
+                                <ul class="link">
+                                    <li><a href="#">Terms & Condition</a></li>
+                                    <li><a href="#">Privacy & Policy</a></li>
+                                    <li><a href="#">Affiliates</a></li>
+                                    <li><a href="#">Partners</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Footer Widget End -->
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Widget Wrapper End -->
+
+            <!-- Footer Copyright End -->
+            <div class="footer-copyright text-center">
+                <p>&copy; Copyrights 2021 LMSMart All rights reserved. </p>
+            </div>
+            <!-- Footer Copyright End -->
+
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top End -->
+    <button class="back-btn" id="backBtn"><i class="fa fa-angle-up"></i></button>
+    <!-- Back to Top End -->
+
+</div>
+
+<!-- JS
+============================================ -->
+
+<!-- Jquery JS -->
+<script th:src="@{../js/vendor/jquery-3.6.0.min.js}"></script>
+<script th:src="@{../js/vendor/modernizr-3.11.7.min.js}"></script>
+
+<!-- Bootstrap JS -->
+<script th:src="@{../js/plugins/popper.min.js}"></script>
+<script th:src="@{../js/plugins/bootstrap.min.js}"></script>
+
+<!-- Plugins JS -->
+<script th:src="@{../js/plugins/swiper-bundle.min.js}"></script>
+<script th:src="@{../js/plugins/nice-select2.js}"></script>
+<script th:src="@{../js/plugins/jquery.powertip.min.js}"></script>
+<script th:src="@{../js/plugins/glightbox.min.js}"></script>
+
+<!-- Main JS -->
+<script th:src="@{../js/main.js}"></script>
+
+<!-- Google Map js -->
+<!--<script th:src="@{..maps/api/js?key="></script>-->
+<script th:src="@{../js/map-script.js}"></script>
+
+</body>
+
+</html>

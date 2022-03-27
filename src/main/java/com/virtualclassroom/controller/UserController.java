@@ -33,7 +33,7 @@ public class UserController {
     @GetMapping("/register")
     public String getRegisterPage(Model model) {
         model.addAttribute("user", new User());
-        return "register";
+        return "login-register";
     }
 
     @PostMapping("/process_register")
@@ -42,6 +42,6 @@ public class UserController {
         String encodedPassword = passwordEncoder.encode(user.getUserPassword());
         user.setUserPassword(encodedPassword);
         userService.addUser(user);
-        return "login";
+        return "login-register";
     }
 }
