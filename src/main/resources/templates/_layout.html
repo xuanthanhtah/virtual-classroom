@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="vi"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:sec="http://www.ultraq.net.nz/thymeleaf/security"
+      xmlns:th="http://www.thymeleaf.org"
+>
 <head th:fragment="head (type)" th:remove="${type}">
     <meta charset="utf-8">
     <title>Lmsmart - Education Bootstrap 5 Template</title>
@@ -53,7 +55,7 @@
                 <div class="header-menu d-none d-lg-block">
                     <ul class="main-menu">
                         <li>
-                            <a class="active"  th:href="@{/}">Home</a>
+                            <a class="active" th:href="@{/}">Home</a>
                             <ul class="sub-menu">
                                 <li><a class="active" href="index.html">Home 01</a></li>
                                 <li><a href="index-2.html">Home 02</a></li>
@@ -101,72 +103,77 @@
                         </form>
                     </div>
 
-                    <div class="header-cart dropdown">
-                        <button class="cart-btn" data-bs-toggle="dropdown">
-                            <i class="flaticon-shopping-cart"></i>
-                            <span class="count">3</span>
-                        </button>
-                        <div class="dropdown-menu dropdown-cart">
-                            <!-- Cart Items Start -->
-                            <div class="cart-items">
-                                <!-- Single Cart Item Start -->
-                                <div class="single-cart-item">
-                                    <div class="item-image">
-                                        <img alt="Cart" th:src="@{../images/shop-cart-1.jpg}">
-                                    </div>
-                                    <div class="item-content">
-                                        <h4 class="title"><a href="#">Smart Gear Watch</a></h4>
-                                        <span class="quantity"> 2 x $59.99 </span>
-                                    </div>
-                                    <button class="btn-close"></button>
-                                </div>
-                                <!-- Single Cart Item End -->
-                                <!-- Single Cart Item Start -->
-                                <div class="single-cart-item">
-                                    <div class="item-image">
-                                        <img alt="Cart" th:src="@{../images/shop-cart-2.jpg}">
-                                    </div>
-                                    <div class="item-content">
-                                        <h4 class="title"><a href="#">Smart Gear Watch</a></h4>
-                                        <span class="quantity"> 2 x $59.99 </span>
-                                    </div>
-                                    <button class="btn-close"></button>
-                                </div>
-                                <!-- Single Cart Item End -->
-                                <!-- Single Cart Item Start -->
-                                <div class="single-cart-item">
-                                    <div class="item-image">
-                                        <img alt="Cart" th:src="@{../images/shop-cart-3.jpg}">
-                                    </div>
-                                    <div class="item-content">
-                                        <h4 class="title"><a href="#">Smart Gear Watch</a></h4>
-                                        <span class="quantity"> 2 x $59.99 </span>
-                                    </div>
-                                    <button class="btn-close"></button>
-                                </div>
-                                <!-- Single Cart Item End -->
-                            </div>
-                            <!-- Cart Items End -->
+                    <!--                    <div class="header-cart dropdown">-->
+                    <!--                        <button class="cart-btn" data-bs-toggle="dropdown">-->
+                    <!--                            <i class="flaticon-shopping-cart"></i>-->
+                    <!--                            <span class="count">3</span>-->
+                    <!--                        </button>-->
+                    <!--                        <div class="dropdown-menu dropdown-cart">-->
+                    <!--                            &lt;!&ndash; Cart Items Start &ndash;&gt;-->
+                    <!--                            <div class="cart-items">-->
+                    <!--                                &lt;!&ndash; Single Cart Item Start &ndash;&gt;-->
+                    <!--                                <div class="single-cart-item">-->
+                    <!--                                    <div class="item-image">-->
+                    <!--                                        <img alt="Cart" th:src="@{../images/shop-cart-1.jpg}">-->
+                    <!--                                    </div>-->
+                    <!--                                    <div class="item-content">-->
+                    <!--                                        <h4 class="title"><a href="#">Smart Gear Watch</a></h4>-->
+                    <!--                                        <span class="quantity"> 2 x $59.99 </span>-->
+                    <!--                                    </div>-->
+                    <!--                                    <button class="btn-close"></button>-->
+                    <!--                                </div>-->
+                    <!--                                &lt;!&ndash; Single Cart Item End &ndash;&gt;-->
+                    <!--                                &lt;!&ndash; Single Cart Item Start &ndash;&gt;-->
+                    <!--                                <div class="single-cart-item">-->
+                    <!--                                    <div class="item-image">-->
+                    <!--                                        <img alt="Cart" th:src="@{../images/shop-cart-2.jpg}">-->
+                    <!--                                    </div>-->
+                    <!--                                    <div class="item-content">-->
+                    <!--                                        <h4 class="title"><a href="#">Smart Gear Watch</a></h4>-->
+                    <!--                                        <span class="quantity"> 2 x $59.99 </span>-->
+                    <!--                                    </div>-->
+                    <!--                                    <button class="btn-close"></button>-->
+                    <!--                                </div>-->
+                    <!--                                &lt;!&ndash; Single Cart Item End &ndash;&gt;-->
+                    <!--                                &lt;!&ndash; Single Cart Item Start &ndash;&gt;-->
+                    <!--                                <div class="single-cart-item">-->
+                    <!--                                    <div class="item-image">-->
+                    <!--                                        <img alt="Cart" th:src="@{../images/shop-cart-3.jpg}">-->
+                    <!--                                    </div>-->
+                    <!--                                    <div class="item-content">-->
+                    <!--                                        <h4 class="title"><a href="#">Smart Gear Watch</a></h4>-->
+                    <!--                                        <span class="quantity"> 2 x $59.99 </span>-->
+                    <!--                                    </div>-->
+                    <!--                                    <button class="btn-close"></button>-->
+                    <!--                                </div>-->
+                    <!--                                &lt;!&ndash; Single Cart Item End &ndash;&gt;-->
+                    <!--                            </div>-->
+                    <!--                            &lt;!&ndash; Cart Items End &ndash;&gt;-->
 
-                            <!-- Cart Total Start -->
-                            <div class="cart-total">
-                                <span class="label">Subtotal:</span>
-                                <span class="value">$229.95</span>
-                            </div>
-                            <!-- Cart Total End -->
+                    <!--                            &lt;!&ndash; Cart Total Start &ndash;&gt;-->
+                    <!--                            <div class="cart-total">-->
+                    <!--                                <span class="label">Subtotal:</span>-->
+                    <!--                                <span class="value">$229.95</span>-->
+                    <!--                            </div>-->
+                    <!--                            &lt;!&ndash; Cart Total End &ndash;&gt;-->
 
-                            <!-- Cart Button Start -->
-                            <div class="cart-btns">
-                                <a class="btn btn-primary btn-hover-white" href="#">View Cart</a>
-                                <a class="btn btn-white btn-hover-primary" href="#">Checkout</a>
-                            </div>
-                            <!-- Cart Button End -->
-                        </div>
-                    </div>
+                    <!--                            &lt;!&ndash; Cart Button Start &ndash;&gt;-->
+                    <!--                            <div class="cart-btns">-->
+                    <!--                                <a class="btn btn-primary btn-hover-white" href="#">View Cart</a>-->
+                    <!--                                <a class="btn btn-white btn-hover-primary" href="#">Checkout</a>-->
+                    <!--                            </div>-->
+                    <!--                            &lt;!&ndash; Cart Button End &ndash;&gt;-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
                     <div class="header-login d-none d-lg-flex">
                         <a class="link" href="login-register.html"><i class="fa fa-user-o"></i> Login</a>
                         <a class="link" href="login-register.html">Register</a>
+                        <div sec:authorize="isAuthenticated()">
+                            <span sec:authentication="name">Bob</span>
+                            <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+                        </div>
+
                     </div>
 
                     <div class="header-toggle d-lg-none">
@@ -245,7 +252,7 @@
     <!-- Offcanvas End -->
 
     <!--Start main body-->
-        <div layout:fragment="main_body"></div>
+    <div layout:fragment="main_body"></div>
     <!--End main body-->
 
     <!-- Footer Start -->

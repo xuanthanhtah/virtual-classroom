@@ -3,6 +3,7 @@ package com.virtualclassroom.controller;
 import com.virtualclassroom.model.User;
 import com.virtualclassroom.service.user.UserService;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,12 +29,6 @@ public class UserController {
     @GetMapping("/home")
     public String home() {
         return "home";
-    }
-
-    @GetMapping("/register")
-    public String getRegisterPage(Model model) {
-        model.addAttribute("user", new User());
-        return "login-register";
     }
 
     @PostMapping("/process_register")

@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +25,12 @@ public class User {
             joinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "classId", referencedColumnName = "id"))
     private Set<Classroom> classrooms = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "UserRole",
+            joinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "roleId", referencedColumnName = "id"))
+    private Set<Role> roles = new HashSet<>();
 
     public User() {
     }
@@ -84,12 +90,24 @@ public class User {
         this.classrooms = classrooms;
     }
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     public void addClass(Classroom cls) {
         this.classrooms.add(cls);
     }
 
     public void removeClass(Classroom cls) {
         this.classrooms.remove(cls);
+    }
+
+    public void addRole(Role role) {
+        this.roles.add(role);
     }
 
     @Override

@@ -54,6 +54,7 @@
                             <!-- Section Title End -->
 
                             <div class="login-register-form">
+                                <p th:if="${loginError}" class="error">Wrong user or password</p>
                                 <form method="post" th:action="@{/login-register}">
                                     <div class="single-form">
                                         <label>
